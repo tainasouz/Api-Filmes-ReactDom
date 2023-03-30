@@ -1,4 +1,5 @@
 // const express = require('express');
+import fetch from 'node-fetch'
 import express, { response } from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
