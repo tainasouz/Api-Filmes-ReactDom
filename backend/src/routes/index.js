@@ -8,6 +8,8 @@ dotenv.config()
 const router = express.Router();
 router.use(cors())
 
+const fetch = require('node-fetch');
+
 const env = process.env
 
 function carregaIsoFilme(results) {
