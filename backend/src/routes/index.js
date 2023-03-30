@@ -6,9 +6,9 @@ import cors from 'cors'
 dotenv.config()
 
 const router = express.Router();
+const fetch = require('node-fetch');
 router.use(cors())
 
-const fetch = require('node-fetch');
 
 const env = process.env
 
