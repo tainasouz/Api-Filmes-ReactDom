@@ -289,6 +289,8 @@ router.get('/detalhes/:type/:id', async function (req, res, next,) {
     try {
         const { type, id } = req.params
 
+        console.log(type)
+
         validarTipo(type)
         const URLDetalhes = `https://api.themoviedb.org/3/${type}/${id}?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR`
         const URLAtores = `http://localhost:3000/dadosAtores/${type}/${id}`
