@@ -203,7 +203,7 @@ router.get('/carregaFilmes', async function (req, res, next) {
 
 router.get('/carregaDestaque', async function (req, res, next,) {
 
-    const response = await fetch(`https://api.themoviedb.org/3/}discover/movie?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR&region=BR&sort_by=popularity.desc&page=1&year=2023&vote_average.lte=8&with_watch_monetization_types=flatrate`)
+    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR&region=BR&sort_by=popularity.desc&page=1&year=2023&vote_average.lte=8&with_watch_monetization_types=flatrate`)
 
 
     if (response.ok) {
@@ -221,7 +221,7 @@ router.get('/carregaDestaque', async function (req, res, next,) {
 router.get('/classificacaoSerie/:id', async function (req, res, next,) {
 
     const id = req.params.id
-    const URL = `https://api.themoviedb.org/3/}tv/${id}/content_ratings?api_key=6c0b4180230783f9b7199576cb4504dc`
+    const URL = `https://api.themoviedb.org/3/tv/${id}/content_ratings?api_key=6c0b4180230783f9b7199576cb4504dc`
 
     const response = await fetch(URL)
     const responseJson = await response.json()
@@ -254,7 +254,7 @@ router.get('/classificacaoSerie/:id', async function (req, res, next,) {
 router.get('/classificacaoFilme/:id', async function (req, res, next,) {
 
     const id = req.params.id
-    const URL = `https://api.themoviedb.org/3/}/movie/${id}/release_dates?api_key=6c0b4180230783f9b7199576cb4504dc`
+    const URL = `https://api.themoviedb.org/3//movie/${id}/release_dates?api_key=6c0b4180230783f9b7199576cb4504dc`
 
     const response = await fetch(URL)
     const responseJson = await response.json()
