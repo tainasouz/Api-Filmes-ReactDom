@@ -9,6 +9,7 @@ dotenv.config()
 const router = express.Router();
 router.use(cors())
 
+const port = process.env.PORT || "3000";
 
 const env = process.env
 
@@ -50,12 +51,12 @@ async function carregaClassificacao(type, id) {
 
     if (type == 'movie') {
 
-        urlClassificacao = `http://localhost:3000/classificacaoFilme/${id}`
+        urlClassificacao = `http://localhost:${port}/classificacaoFilme/${id}`
 
     }
     else {
 
-        urlClassificacao = `http://localhost:3000/classificacaoSerie/${id}`
+        urlClassificacao = `http://localhost:${port}/classificacaoSerie/${id}`
     }
 
     const responseClassificacao = await fetch(urlClassificacao)
@@ -293,14 +294,14 @@ router.get('/detalhes/:type/:id', async function (req, res, next,) {
 
         validarTipo(type)
         const URLDetalhes = `https://api.themoviedb.org/3/${type}/${id}?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR`
-        const URLAtores = `http://localhost:3000/dadosAtores/${type}/${id}`
+        const URLAtores = `http://localhost:${port}/dadosAtores/${type}/${id}`
         let URLClassificacao
 
         if (type == "movie") {
-            URLClassificacao = `http://localhost:3000/classificacaoFilme/${id}`
+            URLClassificacao = `http://localhost:${port}/classificacaoFilme/${id}`
         }
         else {
-            URLClassificacao = `http://localhost:3000/classificacaoSerie/${id}`
+            URLClassificacao = `http://localhost:${port}/classificacaoSerie/${id}`
         }
 
 
