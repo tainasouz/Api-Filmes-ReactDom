@@ -177,7 +177,7 @@ router.get('/carregaSeries', async function (req, res, next) {
 
 router.get('/carregaFilmes', async function (req, res, next) {
 
-    const URL = `${process.env.URL_BASE}movie/popular?${process.env.API_KEY}&language=pt-BR`
+    const URL = `https://api.themoviedb.org/3/movie/popular?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR`
 
     const response = await fetch(URL)
     const responseJson = await response.json()
