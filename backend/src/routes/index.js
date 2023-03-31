@@ -7,7 +7,6 @@ import cors from 'cors'
 dotenv.config()
 
 const router = express.Router();
-// const fetch = require('node-fetch');
 router.use(cors())
 
 
@@ -73,7 +72,7 @@ async function carregaClassificacao(type, id) {
 async function carregaGenero(type, id) {
 
 
-    const URL = `${env.URL_BASE}${type}/${id}?${env.API_KEY}&language=pt-BR`
+    const URL = `https://api.themoviedb.org/3/${type}/${id}?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR`
 
     const response = await fetch(URL);
     const responseJson = await response.json();
@@ -150,7 +149,7 @@ function carregaTodosOsDados(
 
 router.get('/carregaSeries', async function (req, res, next) {
 
-    const url = `${env.URL_BASE}tv/popular?${env.API_KEY}&language=pt-BR`
+    const url = `https://api.themoviedb.org/3/tv/popular?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR`
 
     const response = await fetch(url);
     const responseJson = await response.json();
@@ -204,7 +203,7 @@ router.get('/carregaFilmes', async function (req, res, next) {
 
 router.get('/carregaDestaque', async function (req, res, next,) {
 
-    const response = await fetch(`${env.URL_BASE}discover/movie?${env.API_KEY}&language=pt-BR&region=BR&sort_by=popularity.desc&page=1&year=2023&vote_average.lte=8&with_watch_monetization_types=flatrate`)
+    const response = await fetch(`https://api.themoviedb.org/3/}discover/movie?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR&region=BR&sort_by=popularity.desc&page=1&year=2023&vote_average.lte=8&with_watch_monetization_types=flatrate`)
 
 
     if (response.ok) {
@@ -222,7 +221,7 @@ router.get('/carregaDestaque', async function (req, res, next,) {
 router.get('/classificacaoSerie/:id', async function (req, res, next,) {
 
     const id = req.params.id
-    const URL = `${env.URL_BASE}tv/${id}/content_ratings?${env.API_KEY}`
+    const URL = `https://api.themoviedb.org/3/}tv/${id}/content_ratings?api_key=6c0b4180230783f9b7199576cb4504dc`
 
     const response = await fetch(URL)
     const responseJson = await response.json()
@@ -255,7 +254,7 @@ router.get('/classificacaoSerie/:id', async function (req, res, next,) {
 router.get('/classificacaoFilme/:id', async function (req, res, next,) {
 
     const id = req.params.id
-    const URL = `${env.URL_BASE}/movie/${id}/release_dates?${env.API_KEY}`
+    const URL = `https://api.themoviedb.org/3/}/movie/${id}/release_dates?api_key=6c0b4180230783f9b7199576cb4504dc`
 
     const response = await fetch(URL)
     const responseJson = await response.json()
@@ -291,7 +290,7 @@ router.get('/detalhes/:type/:id', async function (req, res, next,) {
         const { type, id } = req.params
 
         validarTipo(type)
-        const URLDetalhes = `${env.URL_BASE}${type}/${id}?${env.API_KEY}&language=pt-BR`
+        const URLDetalhes = `https://api.themoviedb.org/3/${type}/${id}?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR`
         const URLAtores = `http://localhost:3000/dadosAtores/${type}/${id}`
         let URLClassificacao
 
@@ -363,7 +362,7 @@ router.get('/dadosAtores/:type/:id', async function (req, res, next,) {
     const type = req.params.type
     const id = req.params.id
 
-    const URL = `${env.URL_BASE}${type}/${id}/credits?${env.API_KEY}&language=pt-BR`
+    const URL = `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR`
 
     validarTipo(type)
 
@@ -397,7 +396,7 @@ router.get('/pesquisa/:query/:page', async function (req, res, next) {
     const query = req.params.query
     const page = req.params.page
 
-    const URL = `${env.URL_BASE}search/multi?${env.API_KEY}&language=pt-BR&query=${query}&include_adult=false&page=`
+    const URL = `https://api.themoviedb.org/3/search/multi?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR&query=${query}&include_adult=false&page=`
 
 
     const response = await carregaTodosOsDados(URL)
