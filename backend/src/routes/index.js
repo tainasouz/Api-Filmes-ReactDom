@@ -174,7 +174,6 @@ router.get('/carregaSeries', async function (req, res, next) {
 
 
 });
-
 router.get('/carregaFilmes', async function (req, res, next) {
 
     const URL = `https://api.themoviedb.org/3/movie/popular?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR`
@@ -242,8 +241,8 @@ router.get('/classificacaoSerie/:id', async function (req, res, next,) {
 
 
     const resultClassificacao = {
-        "iso_3166_1": classificacaoSerie.iso_3166_1,
-        "certification": classificacaoSerie.rating || ""
+        "iso_3166_1": classificacaoSerie?.iso_3166_1,
+        "certification": classificacaoSerie?.rating || ""
     }
 
     return res.status(200).send(resultClassificacao);
@@ -289,8 +288,6 @@ router.get('/detalhes/:type/:id', async function (req, res, next,) {
 
     try {
         const { type, id } = req.params
-
-        console.log(type)
 
         validarTipo(type)
         const URLDetalhes = `https://api.themoviedb.org/3/${type}/${id}?api_key=6c0b4180230783f9b7199576cb4504dc&language=pt-BR`
